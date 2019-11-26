@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" id="reportingViews::BPEduAgeIncome" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" id="reportingViews::BPEduAgeIncome" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="BPEduAgeIncome"/>
 <localVariables>
   <variable id="I_BUSINESS_DATE" parameter="true">
@@ -56,109 +56,52 @@
 <calculationViews>
   <calculationView xsi:type="Calculation:ProjectionView" id="Settlement" filterExpressionLanguage="SQL">
     <viewAttributes>
-      <viewAttribute id="TransactionType">
-        <descriptions defaultDescription="TransactionType"/>
-      </viewAttribute>
-      <viewAttribute id="TransactionAmount" aggregationType="sum">
-        <descriptions defaultDescription="TransactionAmount"/>
-      </viewAttribute>
-      <viewAttribute id="TransactionCurrency">
-        <descriptions defaultDescription="TransactionCurrency"/>
-      </viewAttribute>
-      <viewAttribute id="ASSOC_FinancialContract_IDSystem">
-        <descriptions defaultDescription="ASSOC_FinancialContract_IDSystem"/>
-      </viewAttribute>
-      <viewAttribute id="ASSOC_FinancialContract_FinancialContractID">
-        <descriptions defaultDescription="ASSOC_FinancialContract_FinancialContractID"/>
-      </viewAttribute></viewAttributes>
+      <viewAttribute id="TransactionType"/>
+      <viewAttribute id="TransactionAmount"/>
+      <viewAttribute id="TransactionCurrency"/>
+      <viewAttribute id="ASSOC_FinancialContract_IDSystem"/>
+      <viewAttribute id="ASSOC_FinancialContract_FinancialContractID"/></viewAttributes>
     <calculatedViewAttributes/>
-    <restrictedViewAttributes/>
-    <input node="views::Settlement_View">
-      <mapping xsi:type="Calculation:AttributeMapping" target="TransactionType" source="TransactionType"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="TransactionAmount" source="TransactionAmount"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="TransactionCurrency" source="TransactionCurrency"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ASSOC_FinancialContract_IDSystem" source="ASSOC_FinancialContract_IDSystem"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ASSOC_FinancialContract_FinancialContractID" source="ASSOC_FinancialContract_FinancialContractID"/></input>
+    <input node="views::Settlement_View"/>
     <filter>&quot;TransactionType&quot; = 'Salary Payment'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="BPCA" filterExpressionLanguage="SQL">
     <viewAttributes>
-      <viewAttribute id="ASSOC_PartnerInParticipation_BusinessPartnerID">
-        <descriptions defaultDescription="ASSOC_PartnerInParticipation_BusinessPartnerID"/>
-      </viewAttribute>
-      <viewAttribute id="ASSOC_FinancialContract_IDSystem">
-        <descriptions defaultDescription="ASSOC_FinancialContract_IDSystem"/>
-      </viewAttribute>
-      <viewAttribute id="ASSOC_FinancialContract_FinancialContractID">
-        <descriptions defaultDescription="ASSOC_FinancialContract_FinancialContractID"/>
-      </viewAttribute>
-      <viewAttribute id="Role">
-        <descriptions defaultDescription="Role"/>
-      </viewAttribute>
-      <viewAttribute id="MainCounterparty">
-        <descriptions defaultDescription="MainCounterparty"/>
-      </viewAttribute>
+      <viewAttribute id="ASSOC_PartnerInParticipation_BusinessPartnerID"/>
+      <viewAttribute id="ASSOC_FinancialContract_IDSystem"/>
+      <viewAttribute id="ASSOC_FinancialContract_FinancialContractID"/>
+      <viewAttribute id="Role"/>
+      <viewAttribute id="MainCounterparty"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <restrictedViewAttributes/>
-    <input node="views::BusinessPartnerContractAssignment_View">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ASSOC_PartnerInParticipation_BusinessPartnerID" source="ASSOC_PartnerInParticipation_BusinessPartnerID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ASSOC_FinancialContract_IDSystem" source="ASSOC_FinancialContract_IDSystem"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ASSOC_FinancialContract_FinancialContractID" source="ASSOC_FinancialContract_FinancialContractID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="Role" source="Role"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="MainCounterparty" source="MainCounterparty"/>
-    </input>
+    <input node="views::BusinessPartnerContractAssignment_View"/>
     <filter>&quot;Role&quot; = 'AccountHolder'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="BP" filterExpressionLanguage="SQL">
     <viewAttributes>
-      <viewAttribute id="DateOfBirth">
-        <descriptions defaultDescription="DateOfBirth"/>
-      </viewAttribute>
-      <viewAttribute id="BusinessPartnerCategory">
-        <descriptions defaultDescription="BusinessPartnerCategory"/>
-      </viewAttribute>
-      <viewAttribute id="EducationLevel">
-        <descriptions defaultDescription="EducationLevel"/>
-      </viewAttribute>
-      <viewAttribute id="BusinessPartnerID">
-        <descriptions defaultDescription="BusinessPartnerID"/>
-      </viewAttribute>
+      <viewAttribute id="DateOfBirth"/>
+      <viewAttribute id="BusinessPartnerCategory"/>
+      <viewAttribute id="EducationLevel"/>
+      <viewAttribute id="BusinessPartnerID"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <restrictedViewAttributes/>
-    <input node="views::BusinessPartner_View">
-      <mapping xsi:type="Calculation:AttributeMapping" target="DateOfBirth" source="DateOfBirth"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="BusinessPartnerCategory" source="BusinessPartnerCategory"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="EducationLevel" source="EducationLevel"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="BusinessPartnerID" source="BusinessPartnerID"/>
-    </input>
+    <input node="views::BusinessPartner_View"/>
     <filter>&quot;BusinessPartnerCategory&quot; = 'Individual'</filter>
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
     <viewAttributes>
-      <viewAttribute id="TransactionAmount" aggregationType="sum">
-        <descriptions defaultDescription="TransactionAmount"/>
-      </viewAttribute>
-      <viewAttribute id="TransactionCurrency">
-        <descriptions defaultDescription="TransactionCurrency"/>
-      </viewAttribute>
-      <viewAttribute id="ASSOC_PartnerInParticipation_BusinessPartnerID">
-        <descriptions defaultDescription="ASSOC_PartnerInParticipation_BusinessPartnerID"/>
-      </viewAttribute>
+      <viewAttribute id="TransactionAmount" aggregationType="sum"/>
+      <viewAttribute id="TransactionCurrency"/>
+      <viewAttribute id="ASSOC_PartnerInParticipation_BusinessPartnerID"/>
       <viewAttribute hidden="true" id="JOIN$ASSOC_FinancialContract_FinancialContractID$ASSOC_FinancialContract_FinancialContractID"/>
       <viewAttribute hidden="true" id="JOIN$ASSOC_FinancialContract_IDSystem$ASSOC_FinancialContract_IDSystem"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <restrictedViewAttributes/>
     <input node="Settlement">
-      <mapping xsi:type="Calculation:AttributeMapping" target="TransactionAmount" source="TransactionAmount"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="TransactionCurrency" source="TransactionCurrency"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ASSOC_FinancialContract_FinancialContractID$ASSOC_FinancialContract_FinancialContractID" source="ASSOC_FinancialContract_FinancialContractID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ASSOC_FinancialContract_IDSystem$ASSOC_FinancialContract_IDSystem" source="ASSOC_FinancialContract_IDSystem"/>
     </input>
     <input node="BPCA">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ASSOC_PartnerInParticipation_BusinessPartnerID" source="ASSOC_PartnerInParticipation_BusinessPartnerID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ASSOC_FinancialContract_FinancialContractID$ASSOC_FinancialContract_FinancialContractID" source="ASSOC_FinancialContract_FinancialContractID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ASSOC_FinancialContract_IDSystem$ASSOC_FinancialContract_IDSystem" source="ASSOC_FinancialContract_IDSystem"/>
     </input>
@@ -167,18 +110,10 @@
   </calculationView>
   <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="inner">
     <viewAttributes>
-      <viewAttribute id="TransactionAmount" aggregationType="sum">
-        <descriptions defaultDescription="TransactionAmount"/>
-      </viewAttribute>
-      <viewAttribute id="TransactionCurrency">
-        <descriptions defaultDescription="TransactionCurrency"/>
-      </viewAttribute>
-      <viewAttribute id="DateOfBirth">
-        <descriptions defaultDescription="DateOfBirth"/>
-      </viewAttribute>
-      <viewAttribute id="EducationLevel">
-        <descriptions defaultDescription="EducationLevel"/>
-      </viewAttribute>
+      <viewAttribute id="TransactionAmount" aggregationType="sum"/>
+      <viewAttribute id="TransactionCurrency"/>
+      <viewAttribute id="DateOfBirth"/>
+      <viewAttribute id="EducationLevel"/>
       <viewAttribute hidden="true" id="JOIN$ASSOC_PartnerInParticipation_BusinessPartnerID$BusinessPartnerID"/>
     </viewAttributes>
     <calculatedViewAttributes>
@@ -186,42 +121,23 @@
         <formula>TO_INT(TO_INT(DAYS_BETWEEN( &quot;DateOfBirth&quot; , NOW()) / 365)/10) * 10</formula>
       </calculatedViewAttribute>
     </calculatedViewAttributes>
-    <restrictedViewAttributes/>
     <input node="Join_1">
-      <mapping xsi:type="Calculation:AttributeMapping" target="TransactionAmount" source="TransactionAmount"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="TransactionCurrency" source="TransactionCurrency"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ASSOC_PartnerInParticipation_BusinessPartnerID$BusinessPartnerID" source="ASSOC_PartnerInParticipation_BusinessPartnerID"/>
     </input>
     <input node="BP">
-      <mapping xsi:type="Calculation:AttributeMapping" target="DateOfBirth" source="DateOfBirth"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="EducationLevel" source="EducationLevel"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ASSOC_PartnerInParticipation_BusinessPartnerID$BusinessPartnerID" source="BusinessPartnerID"/>
     </input>
     <joinAttribute name="JOIN$ASSOC_PartnerInParticipation_BusinessPartnerID$BusinessPartnerID"/>
   </calculationView>
   <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
     <viewAttributes>
-      <viewAttribute id="TransactionAmount" aggregationType="sum">
-        <descriptions defaultDescription="TransactionAmount"/>
-      </viewAttribute>
-      <viewAttribute id="TransactionCurrency">
-        <descriptions defaultDescription="TransactionCurrency"/>
-      </viewAttribute>
-      <viewAttribute id="EducationLevel">
-        <descriptions defaultDescription="EducationLevel"/>
-      </viewAttribute>
-      <viewAttribute id="Ageband" aggregationType="sum">
-        <descriptions defaultDescription="Ageband"/>
-      </viewAttribute>
+      <viewAttribute id="TransactionAmount"/>
+      <viewAttribute id="TransactionCurrency"/>
+      <viewAttribute id="EducationLevel"/>
+      <viewAttribute id="Ageband"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <restrictedViewAttributes/>
-    <input node="Join_2">
-      <mapping xsi:type="Calculation:AttributeMapping" target="TransactionAmount" source="TransactionAmount"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="TransactionCurrency" source="TransactionCurrency"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="EducationLevel" source="EducationLevel"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="Ageband" source="Ageband"/>
-    </input>
+    <input node="Join_2"/>
   </calculationView>
 </calculationViews>
 <logicalModel id="Projection_1">
@@ -235,7 +151,7 @@
       <keyMapping columnObjectName="Projection_1" columnName="EducationLevel"/>
     </attribute>
     <attribute id="Ageband" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Ageband"/>
+      <descriptions defaultDescription="Ageband1"/>
       <keyMapping columnObjectName="Projection_1" columnName="Ageband"/>
     </attribute>
   </attributes>
